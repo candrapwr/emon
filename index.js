@@ -28,7 +28,7 @@ var io = require('socket.io')(server, {
   'pingInterval': pInterval
 });
 
-var port = process.env.PORT || 3000
+var port = process.env.PORT || 3210
 
 var routes = require('./routes')
 routes(app, io)
