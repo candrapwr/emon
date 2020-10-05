@@ -6,12 +6,12 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "adobot",
-    "host": "127.0.0.1",
+    "database": "tms",
+    "host": "localhost",
     "dialect": "mysql",
     "admin" : {
       "username": "admin",
-      "password": "admin"
+      "password": "pejuang45"
     }
   },
   "production": {
