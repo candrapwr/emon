@@ -12,7 +12,7 @@ module.exports = function BotHandler(io, socket, device) {
     io.to('/admin').emit(event, param)
   }
 
-  function 'error'(err) {
+  function catchError(err) {
     console.log(err)
   }
 
@@ -48,16 +48,16 @@ module.exports = function BotHandler(io, socket, device) {
             .then(function(dbBot) {
               notifyAdmin('bot:connected', dbBot)
             })
-            .catch('error')
+            .catch(catchError)
         } else {
           Bot.create(attrs)
             .then(function(dbBot) {
               notifyAdmin('bot:created', dbBot)
             })
-            .catch('error')
+            .catch(catchError)
         }
       })
-      .catch('error')
+      .catch(catchError)
 
   }
 
@@ -80,10 +80,10 @@ module.exports = function BotHandler(io, socket, device) {
             .then(function(dbBot) {
               notifyAdmin('bot:disconnected', dbBot)
             })
-            .catch('error')
+            .catch(catchError)
         }
       })
-      .catch('error')
+      .catch(catchError)
 
 
   }
@@ -104,7 +104,7 @@ module.exports = function BotHandler(io, socket, device) {
         .then(function() {
           notifyAdmin('commands:cleared', device)
         })
-        .catch('error')
+        .catch(catchError)
       })
   }
 
