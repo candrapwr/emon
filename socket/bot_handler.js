@@ -13,7 +13,7 @@ module.exports = function BotHandler(io, socket, device) {
   }
 
   function catchError(err) {
-    console.log(err)
+    console.log('error bro !')
   }
 
   this.init = function() {
