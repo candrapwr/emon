@@ -5,8 +5,8 @@ var bodyParser = require('body-parser');
 var fs = require('fs');
 
 var privateKey = fs.readFileSync(__dirname +'/key.pem','utf8');
-var certificate = fs.readFileSync(__dirname + '/chain.pem','utf8');
-var ca = fs.readFileSync(__dirname + '/cert.pem','utf8');
+var certificate = fs.readFileSync(__dirname + '/cert.pem','utf8');
+var ca = fs.readFileSync(__dirname + '/chain.pem','utf8');
 var optionsss = {
 	key: privateKey,
 	cert: certificate,
