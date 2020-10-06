@@ -1,4 +1,4 @@
-var env = process.env.NODE_ENV || 'production'
+var env = process.env.NODE_ENV || 'development'
 var express = require('express')
 var app = require('express')();
 var bodyParser = require('body-parser');
@@ -20,15 +20,15 @@ app.use(bodyParser.urlencoded({
 app.use(express.static('./dist'))
 
 // logging
-app.use(function(req, res, next) {
-  console.log('path: ' + req.path)
-  console.log('query:')
-  console.log(req.query)
-  console.log('body:')
-  console.log(req.body)
-  console.log('----------------------------')
-  next()
-})
+//app.use(function(req, res, next) {
+//  console.log('path: ' + req.path)
+//  console.log('query:')
+//  console.log(req.query)
+//  console.log('body:')
+//  console.log(req.body)
+//  console.log('----------------------------')
+//  next()
+//})
 
 var pTimeout = env === 'production' ? 60000 : 10000
 var pInterval = env === 'production' ? 25000 : 10000
