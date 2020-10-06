@@ -4,11 +4,13 @@ var app = require('express')();
 var bodyParser = require('body-parser');
 var fs = require('fs');
 
-var key = fs.readFileSync(__dirname +'/key.pem');
-var cert = fs.readFileSync(__dirname + '/chain.pem');
+var privateKey = fs.readFileSync(__dirname +'/key.pem','utf8');
+var certificate = fs.readFileSync(__dirname + '/chain.pem','utf8');
+var ca = fs.readFileSync(__dirname + '/cert.pem','utf8');
 var optionsss = {
-  key: key,
-  cert: cert
+	key: privateKey,
+	cert: certificate,
+	ca: ca
 };
 
 app.use(bodyParser.json()); // for parsing application/json
