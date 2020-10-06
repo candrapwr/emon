@@ -4,8 +4,8 @@ var app = require('express')();
 var bodyParser = require('body-parser');
 var fs = require('fs');
 
-var key = fs.readFileSync('/home/candrapwr/tms/key.pem');
-var cert = fs.readFileSync('/home/candrapwr/tms/chain.pem');
+var key = fs.readFileSync('./key.pem');
+var cert = fs.readFileSync('./chain.pem');
 var optionsss = {
   key: key,
   cert: cert
