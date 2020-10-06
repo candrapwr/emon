@@ -2,6 +2,14 @@ var env = process.env.NODE_ENV || 'development'
 var express = require('express')
 var app = require('express')();
 var bodyParser = require('body-parser');
+var fs = require('fs');
+
+var key = fs.readFileSync('/etc/letsencrypt/live/tms.datasiber.com/privkey.pem');
+var cert = fs.readFileSync('/etc/letsencrypt/live/tms.datasiber.com/fullchain.pem');
+var optionsss = {
+  key: key,
+  cert: cert
+};
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({
@@ -22,7 +30,7 @@ app.use(function(req, res, next) {
 
 var pTimeout = env === 'production' ? 60000 : 10000
 var pInterval = env === 'production' ? 25000 : 10000
-var server = require('http').Server(app);
+var server = require('https').createServer(optionsss,app);
 var io = require('socket.io')(server, {
   'pingTimeout': pTimeout,
   'pingInterval': pInterval
