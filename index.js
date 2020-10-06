@@ -32,13 +32,14 @@ app.use(function(req, res, next) {
 
 var pTimeout = env === 'production' ? 60000 : 10000
 var pInterval = env === 'production' ? 25000 : 10000
-var server = require('https').createServer(optionsss,app);
+//var server = require('https').createServer(optionsss,app);
+var server = require('http').Server(app);
 var io = require('socket.io')(server, {
   'pingTimeout': pTimeout,
   'pingInterval': pInterval
 });
 
-var port = process.env.PORT || 80
+var port = process.env.PORT || 3210
 
 var routes = require('./routes')
 routes(app, io)
